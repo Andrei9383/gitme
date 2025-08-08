@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "github-markdown-css/github-markdown.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -61,7 +62,7 @@ body {
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --secondary: oklch(0.269  0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
@@ -131,4 +132,81 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Markdown content styles */
+.prose {
+  max-width: 75ch;
+  overflow-wrap: anywhere;
+}
+.prose :where(code):not(:where(pre code)) {
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.375rem;
+  background: color-mix(in oklab, var(--color-muted) 60%, black 0%);
+}
+.prose pre {
+  overflow-x: auto;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+.prose img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Clamp preview container to avoid bottom scrollbar */
+.readme-container {
+  max-width: 75ch;
+  overflow-x: hidden;
+  margin-inline: auto;
+}
+
+/* Improve GitHub markdown CSS for light/dark backgrounds */
+.markdown-body {
+  max-width: 75ch;
+  margin-inline: auto;
+  background: transparent;
+  color: var(--color-foreground);
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  color: var(--color-foreground);
+}
+
+.markdown-body a {
+  color: color-mix(in oklab, var(--color-primary) 70%, black 0%);
+}
+
+.markdown-body code:not(pre code) {
+  background: color-mix(in oklab, var(--color-muted) 80%, black 0%);
+  border-radius: 0.375rem;
+  padding: 0.15rem 0.35rem;
+}
+
+.markdown-body pre {
+  background: color-mix(in oklab, var(--color-muted) 80%, black 0%);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.markdown-body blockquote {
+  color: color-mix(in oklab, var(--color-foreground) 90%, black 0%);
+  border-left-color: color-mix(in oklab, var(--color-border) 80%, black 0%);
+}
+
+.markdown-body table {
+  border-color: var(--color-border);
+}
+
+.markdown-body hr {
+  border-color: var(--color-border);
+}
+
+.dark .markdown-body {
+  color-scheme: dark;
 }

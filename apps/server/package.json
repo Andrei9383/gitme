@@ -6,15 +6,17 @@
     "build": "tsdown",
     "check-types": "tsc -b",
     "compile": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile server",
-    "dev": "bun run --hot src/index.ts",
-    "start": "bun run dist/index.js"
+    "dev": "bun run --port=3002 --hot src/index.ts",
+    "start": "bun run --port=3002 dist/index.js"
   },
   "dependencies": {
     "dotenv": "^17.2.1",
     "zod": "^4.0.2",
     "@orpc/server": "^1.5.0",
     "@orpc/client": "^1.5.0",
-    "hono": "^4.8.2"
+    "hono": "^4.8.2",
+    "jszip": "^3.10.1",
+    "@google/generative-ai": "^0.21.0"
   },
   "devDependencies": {
     "tsdown": "^0.12.9",

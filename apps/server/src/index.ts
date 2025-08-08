@@ -10,10 +10,12 @@ const app = new Hono();
 
 app.use(logger());
 app.use("/*", cors({
-  origin: process.env.CORS_ORIGIN || "",
+  origin: "*",
   allowMethods: ["GET", "POST", "OPTIONS"],
 }));
 
+// NOTE
+// origin : process.env.CORS_ORIGIN
 
 const handler = new RPCHandler(appRouter);
 app.use("/rpc/*", async (c, next) => {

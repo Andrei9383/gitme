@@ -1,21 +1,8 @@
 {
+  "extends": "../../tsconfig.json",
+  "include": ["src", "react-syntax-highlighter.d.ts"],
   "compilerOptions": {
-    "strict": true,
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "verbatimModuleSyntax": true,
-    "skipLibCheck": true,
     "types": ["vite/client"],
-    "rootDirs": ["."],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "references": [{
-    "path": "../server"
-  }]
+    "jsx": "react-jsx"
+  }
 }

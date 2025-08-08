@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --port=3001",
+    "dev": "vite --host --port=3001",
     "build": "vite build",
     "serve": "vite preview",
     "start": "vite",
@@ -29,7 +29,11 @@
     "@orpc/tanstack-query": "^1.5.0",
     "@orpc/client": "^1.5.0",
     "@orpc/server": "^1.5.0",
-    "@tanstack/react-query": "^5.80.5"
+    "@tanstack/react-query": "^5.80.5",
+    "react-markdown": "^9.1.0",
+    "remark-gfm": "^4.0.0",
+    "react-syntax-highlighter": "^15.6.1",
+    "github-markdown-css": "^5.8.1"
   },
   "devDependencies": {
     "@tanstack/react-router-devtools": "^1.114.27",

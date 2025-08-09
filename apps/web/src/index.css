@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "github-markdown-css/github-markdown.css";
-
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -16,6 +17,10 @@ body {
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+.font-instrument-serif {
+  font-family: 'Instrument Serif', serif;
 }
 
 :root {

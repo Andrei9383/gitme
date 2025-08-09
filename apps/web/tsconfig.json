@@ -3,6 +3,15 @@
   "include": ["src", "react-syntax-highlighter.d.ts"],
   "compilerOptions": {
     "types": ["vite/client"],
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   }
 }

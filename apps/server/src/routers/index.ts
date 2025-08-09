@@ -1,5 +1,5 @@
 import { publicProcedure } from "../lib/orpc";
-import JSZip from "jszip";
+import * as JSZipNS from "jszip";
 import type { JSZipObject } from "jszip";
 import { z } from "zod";
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -44,7 +44,7 @@ export const appRouter = {
       if (!zipBuffer) zipBuffer = await fetchZipFor("master");
       if (!zipBuffer) throw new Error("Failed to download repo archive (tried main & master)");
 
-      const zip = await JSZip.loadAsync(zipBuffer);
+      const zip = await JSZipNS.loadAsync(zipBuffer);
 
       const includeRegexes = (includePatterns || []).map((p: string) => new RegExp(p));
       const defaultExcludes = ["node_modules", "dist", "build", "\\.git/", "\\.cache"];

@@ -21,8 +21,10 @@ export const queryClient = new QueryClient({
   }),
 });
 
+const baseUrl = (import.meta as any)?.env?.VITE_SERVER_URL ?? "http://localhost:3002";
+
 export const link = new RPCLink({
-  url: `${import.meta.env.VITE_SERVER_URL}/rpc`,
+  url: `${baseUrl}/rpc`,
 });
 
 export const client: RouterClient<typeof appRouter> = createORPCClient(link);

@@ -24,6 +24,8 @@ export type RepoHistoryEntry = {
   url?: string;
   snapshot: RepoSnapshot;
   generations: ReadmeGeneration[];
+  // Persist the latest edited README text (user changes) per repo
+  editedReadme?: string;
   updatedAt: number;
 };
 
@@ -95,4 +97,20 @@ export function removeEntry(repo: string) {
 
 export function clearHistory() {
   saveHistory({});
+}
+
+// Save user's edited README markdown for a repo
+export function saveEditedReadme(repo: string, readme: string) {
+  const hist = loadHistory();
+  const entry = hist[repo];
+  if (!entry) return;
+  entry.editedReadme = readme;
+  entry.updatedAt = Date.now();
+  hist[repo] = entry;
+  saveHistory(hist);
+}
+
+export function getEditedReadme(repo: string): string | undefined {
+  const entry = getEntry(repo);
+  return entry?.editedReadme;
 }

@@ -29,17 +29,17 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
   head: () => ({
     meta: [
       {
-        title: "my-better-t-app",
+        title: "Gitme",
       },
       {
         name: "description",
-        content: "my-better-t-app is a web application",
+        content: "Generate GitHub README's with AI"
       },
     ],
     links: [
       {
         rel: "icon",
-        href: "/favicon.ico",
+        href: "/undraw_star.svg",
       },
     ],
   }),
